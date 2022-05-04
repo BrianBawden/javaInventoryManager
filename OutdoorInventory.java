@@ -15,7 +15,7 @@ public class OutdoorInventory
     public static void main(String[] args) {// Start main
         // addItem();
         printFile();
-        searchFile();
+        searchFileItemNum();
     }// end main
 
     /////////////////////// Methods/////////////////////
@@ -61,7 +61,7 @@ public class OutdoorInventory
         }//end try catch
     }// end if printFile
 
-    static void searchFile() 
+    static void searchFileItemNum() 
     {
         String itemNu = "";
         String itemNa = "";
@@ -69,9 +69,7 @@ public class OutdoorInventory
         String itemPr = "";
         boolean found = false;
 
-        System.out.println("To search by:\n1 = Item Number\n2 = Item Name\n3 = Item Quantity\n4 = Item Price ");
-        String userNum = userInput();
-        System.out.println("Enter item to search for: ");
+        System.out.println("Enter item number to search for: ");
         String userSearch = userInput();
 
         try
@@ -79,60 +77,19 @@ public class OutdoorInventory
             sc = new Scanner(new File(path));
             sc.useDelimiter("[,\n]");
 
-            while(sc.hasNext() && !found)
-            {
-                itemNu = sc.next();
-                itemNa = sc.next();
-                itemQu = sc.next();
-                itemPr = sc.next();
-
-                if (userNum == "1")
+                while(sc.hasNext() && !found)
                 {
+                    itemNu = sc.next();
+                    itemNa = sc.next();
+                    itemQu = sc.next();
+                    itemPr = sc.next();
+                
                     if(itemNu.equals(userSearch))
                     {
                         found = true;
                         System.out.print(itemNu + itemNa + itemQu + itemPr);
                     }
                 }
-                else if (userNum == "2")
-                {
-                    if(itemNa.equals(userSearch))
-                    {
-                        found = true;
-                        System.out.print(itemNu + itemNa + itemQu + itemPr);
-                    }
-                }
-                else if (userNum == "3")
-                {
-                    if(itemQu.equals(userSearch))
-                    {
-                        found = true;
-                        System.out.print(itemNu + itemNa + itemQu + itemPr);
-                    }
-                }
-                else if (userNum == "4")
-                {
-                    if(itemPr.equals(userSearch))
-                    {
-                        found = true;
-                        System.out.print(itemNu + itemNa + itemQu + itemPr);
-                    }
-                }
-                else
-                {
-                    System.out.println("Invalid entry try again? ('y/n') ");
-                    String searchAgain = userInput();
-                    if(searchAgain == "y")
-                    {
-                        searchFile();
-                    }
-                    else
-                    {
-                        break;
-                    }
-
-                }
-            }
         }
         catch (Exception e)
         {
