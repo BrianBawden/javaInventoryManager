@@ -27,11 +27,11 @@ public class OutdoorInventory
 
             addWriter.write("\n"); //start on next line of file
             System.out.println("Enter new item number: ");
-            addWriter.write(userInput());
+            addWriter.write(userInput() + ", ");
             System.out.println("Enter new item name: ");
-            addWriter.write(userInput());
+            addWriter.write(userInput() + ", ");
             System.out.println("Enter new item quantity: ");
-            addWriter.write(userInput());
+            addWriter.write(userInput() + ", ");
             System.out.println("Enter new item Price: ");
             addWriter.write(userInput());
             addWriter.close();
