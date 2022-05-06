@@ -118,15 +118,15 @@ public class OutdoorInventory
         String itemQu = "";//Starting blank variable for future use.
         String itemPr = "";//Starting blank variable for future use.
 
-        System.out.println("\nEnter the item number to edit: ");
+        System.out.println("Enter the item number to edit: ");
         String editNum = userInput();
-        System.out.println("\nEnter new item number: ");
+        System.out.println("Enter new item number: ");
         String newNum = userInput();
-        System.out.println("\nEnter new item name: ");
+        System.out.println("Enter new item name: ");
         String newNam = userInput();
-        System.out.println("\nEnter new item quantity: ");
+        System.out.println("Enter new item quantity: ");
         String newQua = userInput();
-        System.out.println("\nEnter new item price: ");
+        System.out.println("Enter new item price: ");
         String newPri = userInput();
 
         try
