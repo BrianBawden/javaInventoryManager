@@ -16,7 +16,7 @@ public class OutdoorInventory
     private static Scanner sc; // set Scanner to sc.
 
     public static void main(String[] args) {// Start main
-        // addItem();
+        addItem();
         // printFile();
         // searchFileItemNum();
         editFile();
@@ -26,20 +26,46 @@ public class OutdoorInventory
 
     // The addItem method is used to append new items to the list.
     static void addItem() {// Start addItem
-        try {// Start try
-            FileWriter addWriter = new FileWriter(path, true);
 
-            addWriter.write("\n"); // start on next line of file
-            //The next few lins are used to get user input and append it to the file.
-            System.out.println("Enter new item number: ");
-            addWriter.write(userInput() + ", ");
-            System.out.println("Enter new item name: ");
-            addWriter.write(userInput() + ", ");
-            System.out.println("Enter new item quantity: ");
-            addWriter.write(userInput() + ", ");
-            System.out.println("Enter new item Price: ");
-            addWriter.write(userInput());
-            addWriter.close();
+        String tempFile = "C:\\Users\\brian\\BYU-I\\Spring 2022\\CSE 310\\W02\\javaInventoryManager\\addTemp.csv;";//A temp file is used to copy the old info to except for the info to be edited then continues copying the file until the end
+        File oldFile = new File(path);//designate path for the file to read from and to be replaced.
+        File newFile = new File(tempFile);// new file that will replace old file after copying information and replacing desired info
+        String itemNu = "";//Starting blank variable for future use.
+        String itemNa = "";//Starting blank variable for future use.
+        String itemQu = "";//Starting blank variable for future use.
+        String itemPr = "";//Starting blank variable for future use.
+        System.out.println("Enter new item number: ");
+        String newNum = userInput();
+        System.out.println("Enter new item name: ");
+        String newNam = userInput();
+        System.out.println("Enter new item quantity: ");
+        String newQua = userInput();
+        System.out.println("Enter new item price: ");
+        String newPri = userInput();
+
+        try {// Start try
+            FileWriter fw = new FileWriter(tempFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            sc = new Scanner(new File(path));
+            sc.useDelimiter("[,\n]");
+           
+            while(sc.hasNext())
+            {
+                itemNu = sc.next();
+                itemNa = sc.next();
+                itemQu = sc.next();
+                itemPr = sc.next();
+                pw.print(itemNu + "," + itemNa + "," + itemQu + "," + itemPr + "\n");
+            }
+            pw.print(newNum + "," + newNam + "," + newQua + "," + newPri + "\n");
+            sc.close();
+            pw.flush();
+            pw.close();
+            oldFile.delete();
+            File dump = new File(path);
+            newFile.renameTo(dump);
+    
         } // End try
         catch (IOException exception) {// start catch
             exception.printStackTrace();
@@ -110,7 +136,7 @@ public class OutdoorInventory
     {
         printFile();// this call to printFile shows the data in the file so the user can see the info to edit.
 
-        String tempFile = "C:\\Users\\brian\\BYU-I\\Spring 2022\\CSE 310\\W02\\javaInventoryManager\\temp.csv;";//A temp file is used to copy the old info to except for the info to be edited then continues copying the file until the end
+        String tempFile = "C:\\Users\\brian\\BYU-I\\Spring 2022\\CSE 310\\W02\\javaInventoryManager\\editTemp.csv;";//A temp file is used to copy the old info to except for the info to be edited then continues copying the file until the end
         File oldFile = new File(path);//designate path for the file to read from and to be replaced.
         File newFile = new File(tempFile);// new file that will replace old file after copying information and replacing desired info
         String itemNu = "";//Starting blank variable for future use.
