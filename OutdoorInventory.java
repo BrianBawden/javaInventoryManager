@@ -16,9 +16,9 @@ public class OutdoorInventory
     private static Scanner sc; // set Scanner to sc.
 
     public static void main(String[] args) {// Start main
+        printFile();
         addItem();
-        // printFile();
-        // searchFileItemNum();
+        searchFileItemNum();
         editFile();
     }// end main
 
@@ -65,6 +65,7 @@ public class OutdoorInventory
             oldFile.delete();
             File dump = new File(path);
             newFile.renameTo(dump);
+            newFile.delete();
     
         } // End try
         catch (IOException exception) {// start catch
@@ -119,7 +120,7 @@ public class OutdoorInventory
                     if(itemNu.equals(userSearch))//if the itemNu matches what the user is searching for the following is executed and the method will end.
                     {
                         found = true;
-                        System.out.println(itemNu + itemNa + itemQu + itemPr);
+                        System.out.println(itemNu + "," + itemNa + "," + itemQu + "," + itemPr);
                     }
                 }
         }
@@ -185,6 +186,7 @@ public class OutdoorInventory
             oldFile.delete();
             File dump = new File(path);
             newFile.renameTo(dump);
+            newFile.delete();
     
           }
           catch(Exception e)
