@@ -146,11 +146,11 @@ public class OutdoorInventory
                 itemPr = sc.next();
                 if(itemNu.equals(editNum))
                 {
-                   pw.println(newNum + "," + newNam + "," + newQua + "," + newPri);
+                   pw.print(newNum + "," + newNam + "," + newQua + "," + newPri + "\n");
                 }
                 else
                 {
-                    pw.println(itemNu + "," + itemNa + "," + itemQu + "," + itemPr);
+                    pw.print(itemNu + "," + itemNa + "," + itemQu + "," + itemPr + "\n");
                 }
             }
             sc.close();
