@@ -18,7 +18,7 @@ public class OutdoorInventory
     public static void main(String[] args) {// Start main
         // addItem();
         // printFile();
-        searchFileItemNum();
+        // searchFileItemNum();
         editFile();
     }// end main
 
@@ -100,6 +100,8 @@ public class OutdoorInventory
         catch (Exception e)
         {
             System.out.println("Search file failed.");
+            e.printStackTrace();
+
         }
         
     }
@@ -108,7 +110,7 @@ public class OutdoorInventory
     {
         printFile();// this call to printFile shows the data in the file so the user can see the info to edit.
 
-        String tempFile = "temp.csv;";//A temp file is used to copy the old info to except for the info to be edited then continues copying the file until the end
+        String tempFile = "C:\\Users\\brian\\BYU-I\\Spring 2022\\CSE 310\\W02\\javaInventoryManager\\temp.csv;";//A temp file is used to copy the old info to except for the info to be edited then continues copying the file until the end
         File oldFile = new File(path);//designate path for the file to read from and to be replaced.
         File newFile = new File(tempFile);// new file that will replace old file after copying information and replacing desired info
         String itemNu = "";//Starting blank variable for future use.
@@ -144,11 +146,11 @@ public class OutdoorInventory
                 itemPr = sc.next();
                 if(itemNu.equals(editNum))
                 {
-                   pw.println(newNum + ", " + newNam + ", " + newQua + ", " + newPri);
+                   pw.println(newNum + "," + newNam + "," + newQua + "," + newPri);
                 }
                 else
                 {
-                    pw.print(itemNu + "," + itemNa + "," + itemQu + "," + itemPr);
+                    pw.println(itemNu + "," + itemNa + "," + itemQu + "," + itemPr);
                 }
             }
             sc.close();
@@ -162,6 +164,7 @@ public class OutdoorInventory
           catch(Exception e)
           {
             System.out.println("Error editing record.");
+            e.printStackTrace();
 
 
         }
