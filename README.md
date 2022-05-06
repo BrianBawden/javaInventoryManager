@@ -17,6 +17,9 @@ To search the .CSV file I used a while loop and Scanner.next method until the it
 
 I also noticed I was writing the same code several times to get user input so I wrote a quick method that would return user input. 
 
+[Software Demo Video](https://youtu.be/vWE0ewMQZgw)
+
+
 # Useful Websites
 
 

@@ -1,11 +1,11 @@
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
-import java.io.BufferedWriter;
 import java.io.File;  
-import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 
 public class OutdoorInventory
@@ -102,6 +102,7 @@ public class OutdoorInventory
         String itemPr = "";
         boolean found = false;//found will change to true when the item searched for is found.
 
+        printFile();
         System.out.println("Enter item number to search for: ");
         String userSearch = userInput();
 
